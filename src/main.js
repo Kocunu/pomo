@@ -1,5 +1,9 @@
 const { invoke } = window.__TAURI__.tauri;
 
-invoke("greet",{name: "World"}).then((response) => {
-  window.header.innerHTML = response
-})
+invoke('number')
+  .then(result => {
+    document.getElementById('number').innerText = result;
+  })
+  .catch(err => {
+    console.error('Error calling number:', err);
+  });
